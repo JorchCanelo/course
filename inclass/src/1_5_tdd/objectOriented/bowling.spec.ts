@@ -67,6 +67,5 @@ function rollMany(game: BowlingGame, rolls: number, pins: number){
   for(let i = 0; rolls > i; i++){
       game.roll(pins)
   }
-  return game
 }
 //npm run test -- ./src/1_5_tdd/objectOriented/
