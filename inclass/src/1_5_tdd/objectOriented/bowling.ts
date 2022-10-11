@@ -14,8 +14,10 @@ export class BowlingGame {
         let firstInFrame = 0
         for (let frame = 0; 10 > frame; frame++ ){
             if( this.isStrike( this.rolls[firstInFrame] ) ){
+                
                 score += 10 + this.rolls[firstInFrame+1] + this.rolls[firstInFrame+2]
                 firstInFrame++
+
             } else if( this.isSpare( this.rolls[firstInFrame], this.rolls[firstInFrame+1] ) ){
 
                 score += 10 + this.rolls[firstInFrame+2]
@@ -31,11 +33,11 @@ export class BowlingGame {
         return score
     }
 
-    isSpare(firstRoll: number, secondRoll: number){
+    private isSpare(firstRoll: number, secondRoll: number){
         return (firstRoll + secondRoll === 10)
     }
 
-    isStrike(roll: number){
+    private isStrike(roll: number){
         return (roll === 10)
     }
 
