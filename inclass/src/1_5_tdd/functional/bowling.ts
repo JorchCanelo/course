@@ -16,7 +16,7 @@ const roll = (State: State, pins: number) => {
 const score = ({rolls}: State) => {
     let score = 0
     let firstInFrame = 0
-    for (let frame = 0; 10>frame; frmae++ ){
+    for (let frame = 0; 10>frame; frame++ ){
         if(rolls[firstInFrame] === 10){
             score += 10 + rolls[firstInFrame+1] + rolls[firstInFrame+2]
             firstInFrame++

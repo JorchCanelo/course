@@ -3,6 +3,7 @@ import {
   Gender,
   Move,
   PokemonBaseData,
+  PokemonBuilder,
   PokemonMoves,
   PokemonStats,
 } from 'src/pokemon'
@@ -10,7 +11,23 @@ import { GarchompMock } from '../dtos/mock'
 import { getRandomInt } from '../utils/math.utils'
 
 export const generateRandomPokemon = (id: number) => {
-  return GarchompMock
+  const builder: PokemonBuilder = {
+    buildBaseData: (id: number, name: string) => {
+      const pokemonData: PokemonBaseData = {
+        gender: generateRandomGender(),
+        isShiny: canBeRandomShiny()
+      }
+      return pokemonData
+    },
+    buildMoves: (moves: Move[]) => {
+      return generateRandomSetOfMoves(moves)
+    },
+    buildStats: (statsData: PokemonStats) => {
+      return generateRandomStats(statsData)
+    }
+  }
+
+  return buildPokemon(id, builder)
 }
 
 ///--------------------
